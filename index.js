@@ -8,7 +8,7 @@ var argv = minimist(process.argv);
 
 var server = http.createServer(function(req, res) {
 
-    console.log('El resurces path pedido es: ' + req.url);
+    console.log('El recurso path pedido es: ' + req.url);
 
     if (req.url.indexOf('/public') > -1) {
 
@@ -74,6 +74,7 @@ var server = http.createServer(function(req, res) {
                 });
 
                 res.end(JSON.stringify(objRes));
+                return;
             }
 
             res.end();

@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    var lastResponse = 0;
     var dialog = document.getElementById('dialog');
+
     var $ingresarBtn = $('#ingresarBtn');
     var $btnTraerDatos = $('#btnTraerDatos');
     var $btnPostearDatos = $('#btnPostearDatos');
@@ -10,13 +10,6 @@ $(document).ready(function() {
     var userName;
 
     dialog.showModal();
-
-    function getHTMLPostData(data) {
-        var elemHTML = $('<div></div>');
-        elemHTML.html('<span>User:' + data.content.user +
-            '</span><p>' + data.content.data + '</p>');
-        return elemHTML;
-    }
 
     // modal inicial
     $ingresarBtn.on('click', function() {
@@ -43,10 +36,19 @@ $(document).ready(function() {
             type: 'POST',
             url: '/urlPost',
             headers: {
-                username: userName
+                username: 'pepe'
             },
             success: function(data) {
-                if (data) {
+
+                function getHTMLPostData(data) {
+                    var elemHTML = $('<div></div>');
+                    elemHTML.html('<span>User:' + data.content.user +
+                        '</span><p>' + data.content.data + '</p>');
+                    return elemHTML;
+                }
+
+                console.log(data);
+                if (!data){
                     $('#contenedor .centre').append("sin usuario...");
                 } else {
                     var stringSpan = getHTMLPostData(data);
