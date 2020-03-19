@@ -1,4 +1,5 @@
-# notTwitter
+# Aplicacion ejemplo #notTwitter
+
 Aplicación web con un enfoque práctico hecha con Node.js similar a reconocida red social en la cual se utilizan conceptos del protocolo HTTP, módulos y AJAX.
 
 ## Inicialización
